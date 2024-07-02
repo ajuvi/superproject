@@ -1,0 +1,9 @@
+{% extends "super/base.html" %}
+
+{% block content %}
+        <ul>
+        <li><a href="{% url 'super:product' %}">Products</a></li>
+        <li><a href="{% url 'super:customer' %}">Customers</a></li>
+        <li><a href="{% url 'super:order' %}">Orders</a></li>
+    </ul>
+{% endblock %}
