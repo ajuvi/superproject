@@ -1,0 +1,15 @@
+{% extends "super/base.html" %}
+
+{% block content %}
+
+    {% if ctx_productes %}
+        <ul>
+        {% for producte in ctx_productes %}
+        <li>{{producte.name}}</li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No objects are available.</p>
+    {% endif %}
+
+{% endblock %}
