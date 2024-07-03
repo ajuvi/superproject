@@ -1,0 +1,28 @@
+{% extends "super/base.html" %}
+
+{% block content %}
+    <h1>Filtrar productes</h1>
+
+    <form method="POST" action="{% url 'super:products_search' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Buscar Productes</button>
+    </form>
+
+    {% if ctx_products %}
+        <h2>Llistat de productes:</h2>
+        <ul>
+        {% for product in ctx_products %}
+            <li>
+                <strong>Código del Producto:</strong> {{ product.product_code }}<br>
+                <strong>Nombre:</strong> {{ product.name }}<br>
+                <strong>Descripción:</strong> {{ product.description }}<br>
+                <strong>Precio:</strong> {{ product.price }}<br>
+                <strong>Stock:</strong> {{ product.stock }}
+            </li>
+        {% endfor %}
+        </ul>
+    {% elif ctx_products is not None %}
+        <p>No s'han trobat productes.</p>
+    {% endif %}
+{% endblock %}

@@ -8,8 +8,13 @@ app_name = "super"
 
 urlpatterns = [
     path("", views.IndexView, name="index"),
+    
     path("products", views.ProductView, name="products"),
+    path("products/search", views.ProductSearchView, name="products_search"),
+
     path("customers", views.IndexView, name="customers"),
+    
     path("orders", views.IndexView, name="orders"), 
+
 ]
 
